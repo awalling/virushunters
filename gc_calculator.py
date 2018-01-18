@@ -23,10 +23,12 @@ def main(input_file,output_file_name):
     #create a csv file called gcdata.csv to append our data
     with open(output_file_name, 'w') as f:
         writer = csv.writer(f)
-
+        scaffolds = []
         #for loop that loops through the different sequence in the data file
         for seq_record in dna_sequence:
             seq = (seq_record.seq)
+            scaffolds.append(seq_record.id)
+            m = len(scaffolds)
             #loops through every nucleotide in each sequence and incriments the specific
             #counter by 1 everytime it loops through the corresponding nucleotide
             for base in seq:
@@ -55,7 +57,7 @@ def main(input_file,output_file_name):
             writer.writerow(mylist)
             #print the number of G and C and the Percentage for each DNA sequence
             print 'NUMBER OF G: ', g_counter
-            print 'NUMBER OF N: ', n_counter
+            print 'NUMBER OF C: ', c_counter
             print 'PERCENTAGE: ', gcpercentage,'%'
             print '--------------------------------------------------'
             c_counter = 0
@@ -65,31 +67,20 @@ def main(input_file,output_file_name):
             t_counter = 0
         #calculate the mean
 
-        scaffolds = []
-        #n = SeqIO.parse(input_file, 'fasta')
-        #for seq_record in n:
-            #scaffolds.append(seq_record.id)
-        for seq_record in dna_sequence:
-            seq = (seq_record.seq)
-            scaffolds.append(seq_record.id)
-            print seq_record.id
-
-        m = len(scaffolds)
-
-        mean = final/ m
-        first = gcpercentage - mean
-        second = math.pow(first, 2)
-        total2 += second
+            mean = final/ m
+            first = gcpercentage - mean
+            second = math.pow(first, 2)
+            total2 += second
         mean2 = total2 / m
-        fianldeviation = math.sqrt(total2)
+        finaldeviation = math.sqrt(total2)
 
         print 'MEAN: ', mean, '%'
-        print 'STANDARD DEVIATION: ', fianldeviation
+        print 'STANDARD DEVIATION: ', finaldeviation
         print '--------------------------------------------------'
 
         #append the mean to the csv file
         writer.writerow(['MEAN', mean])
-        writer.writerow(['STANDARD DEVIATION', fianldeviation])
+        writer.writerow(['STANDARD DEVIATION', finaldeviation])
 
     #close csv file
     f.close()
