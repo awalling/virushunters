@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-#$1 $2 all stand for arguments
+#$1, $2, $3, $4 all stand for arguments
 
 #This code prints out "Not enough arguments", if there are 
 #less than 4 arguments in the command line
