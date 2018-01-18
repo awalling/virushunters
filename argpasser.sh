@@ -9,7 +9,7 @@ if [ $# -lt 4 ]; then
 
 	exit
 elif [ $# -gt 4 ]; then
-	echo "$0: Too much"
+	echo "$0: Too many arguments"
 	echo "Usage: $0 "
 
 	exit
