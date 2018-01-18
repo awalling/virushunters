@@ -32,7 +32,7 @@ elif [ $# -gt 4 ]; then
 #arguments needed for each of the files
 fi 
 python sequencefinder.py -i $1 -s $2 -o $3
-python cg_calculator.py -i $3 -o $4
+python gc_calculator.py -i $3 -o $4
 
 
 exit
