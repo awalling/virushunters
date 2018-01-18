@@ -14,8 +14,8 @@ elif [ $# -gt 4 ]; then
 
 	exit
 fi 
-python sequence_finder_comments.py -i $1 -s $2 -o $3
-python cg.py -i $3 -o $4
+python sequencefinder.py -i $1 -s $2 -o $3
+python cg_calculator.py -i $3 -o $4
 
 
 exit
