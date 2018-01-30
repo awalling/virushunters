@@ -43,7 +43,7 @@ def main(input_file,output_file_name):
                 elif base == 'T':
                     t_counter += 1
             #prints the sequence id
-            print seq_record.id
+            print (seq_record.id)
             #the total of all the Bases to find the mean
             total = c_counter + g_counter + n_counter + a_counter + t_counter
             #find the percentage of C and G and then adding them together
@@ -56,10 +56,10 @@ def main(input_file,output_file_name):
             mylist =[seq_record.id, c_counter, g_counter, gcpercentage]
             writer.writerow(mylist)
             #print the number of G and C and the Percentage for each DNA sequence
-            print 'NUMBER OF G: ', g_counter
-            print 'NUMBER OF C: ', c_counter
-            print 'PERCENTAGE: ', gcpercentage,'%'
-            print '--------------------------------------------------'
+            print ('NUMBER OF G: ', g_counter)
+            print ('NUMBER OF C: ', c_counter)
+            print ('PERCENTAGE: ', gcpercentage,'%')
+            print ('--------------------------------------------------')
             c_counter = 0
             g_counter = 0
             n_counter = 0
@@ -74,9 +74,9 @@ def main(input_file,output_file_name):
         mean2 = total2 / m
         finaldeviation = math.sqrt(total2)
 
-        print 'MEAN: ', mean, '%'
-        print 'STANDARD DEVIATION: ', finaldeviation
-        print '--------------------------------------------------'
+        print ('MEAN: ', mean, '%')
+        print ('STANDARD DEVIATION: ', finaldeviation)
+        print ('--------------------------------------------------')
 
         #append the mean to the csv file
         writer.writerow(['MEAN', mean])
