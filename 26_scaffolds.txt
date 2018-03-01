@@ -1,4 +1,4 @@
-﻿scaffold_3
+scaffold_3
 scaffold_17
 scaffold_187
 scaffold_646
