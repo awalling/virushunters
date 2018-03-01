@@ -74,13 +74,13 @@ def main(input_file,output_file_name):
         mean2 = total2 / m
         finaldeviation = math.sqrt(total2)
 
-        print ('MEAN: ', mean, '%')
-        print ('STANDARD DEVIATION: ', finaldeviation)
-        print ('--------------------------------------------------')
+        #print ('MEAN: ', mean, '%')
+        #print ('STANDARD DEVIATION: ', finaldeviation
+        #print ('--------------------------------------------------')
 
         #append the mean to the csv file
-        writer.writerow(['MEAN', mean])
-        writer.writerow(['STANDARD DEVIATION', finaldeviation])
+        #writer.writerow(['MEAN', mean])
+        #writer.writerow(['STANDARD DEVIATION', finaldeviation])
 
     #close csv file
     f.close()
