@@ -1,0 +1,116 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Load the ggplot2 library
+
+```
+
+```{r}
+#read in the .csv file of GC% for your 26 scaffolds data set.
+gc_26_scaffolds <-
+
+#print the dataframe
+gc_26_scaffolds
+```
+
+```{r}
+#Plot the histogram for the GC% of your 26 scaffolds dataset.  What do you notice about the shape of your data?  
+
+
+  #Add a line to your plot showing the mean for your dataset
+
+  #Add a title, x labels, and y labels to your plot
+
+```
+
+```{r}
+#load in data for cymbomonas genome as a whole
+
+cymbo_gc <- 
+
+#Print your dataframe
+cymbo_gc
+```
+
+```{r}
+#Plot a histogram for the GC% of the entire Cymbomonas tetramitiformis genome.
+
+
+  #Add a line to your plot showing the mean for your dataset
+
+  #Add a title, x labels, and y labels to your plot
+```
+
+```{r}
+#This block of code will allow you to create a boxplot showing the interquartile range for the GC% of the 26 suspected viral scaffolds and the whole Cymbomonas genome.
+
+ggplot() +
+
+geom_boxplot(data=cymbo_gc,
+               aes(x="Cymbomonas tetramitiformis Genome",
+               y=cymbo_gc$V4),
+               fill="blue",
+               alpha=0.5) +
+    geom_boxplot(data=gc_26_scaffolds, 
+               aes(x="26 Suspected Viral Scaffolds",
+               y=gc_26_scaffolds$V2),
+               fill="green",
+               alpha=0.5)
+ # Add code for a title, x-axis label, and y-axis label.
+```
+
+```{r}
+
+#Calculate the mean and standard deviation for the 26 Scaffolds dataframe
+
+
+#Calculate the mean and standard deviation for the Cymbomonas tetramitiformis genome
+
+
+
+
+```
+
+```{r}
+#The following block of code will create a new dataframe of summary statistics that you can use to create a bar plot with error bars.
+
+#Please include comments identifying whether each of the following lines creates a variable, a vector, or a dataframe.
+
+mean_cymbo <- mean(cymbo_gc$V4)
+mean_26 <- mean(gc_26_scaffolds$V2)
+means <- c(mean_cymbo,mean_26)
+
+sd_cymbo <- sd(cymbo_gc$V4)
+sd_26 <- sd(gc_26_scaffolds$V2)
+stdevs <- c(sd_cymbo, sd_26)
+names <- c("Cymbomonas tetramitiformis Genome", "26 Suspected Viral Sequences")
+
+summary_df <- data.frame(means, stdevs, names)
+
+summary_df
+```
+
+```{r}
+#This code creates a barplot with error bars showing the differences between the means of the 26 scaffolds dataset and the Cymbomonas tetramitiformis dataset.
+
+#Can you figure out from previous plot types how to adjust the colors and axis titles of this plot?
+ggplot(data=summary_df, aes(x=names, y=means)) +
+  geom_bar(stat="identity") +
+  
+  #Can you figure out what this line of code is doing?
+  geom_errorbar(aes(ymax = means + stdevs, ymin = means-stdevs))
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
