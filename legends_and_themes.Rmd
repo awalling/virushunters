@@ -1,0 +1,137 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Load in your ggplot2 library
+
+```
+
+```{r}
+#Load in your data using the read.csv function for the 26 scaffolds dataset and the Cymbomonas genome dataset.
+
+#read in data
+gc_26_scaffolds <-
+#print your new data frame
+
+
+#read in data
+cymbo_gc <- 
+#print your new data frame
+
+```
+
+```{r}
+#This block of code is from your hist_box_bar notebook from last internship.  It creates a boxplot comparing the median and interquartile range of your two datasets.
+
+#Calls the ggplot function
+ggplot() +
+
+#Creates a boxplot of the GC% numbers from the cymbo_gc dataframe.
+geom_boxplot(data=cymbo_gc,
+               aes(x="Cymbomonas tetramitiformis Genome",
+               y=cymbo_gc$V4),
+               fill="blue",
+               alpha=0.5) +
+#Creates a boxplot of the GC% numbers from the gc_26_scaffolds dataframe.
+    geom_boxplot(data=gc_26_scaffolds, 
+               aes(x="26 Suspected Viral Scaffolds",
+               y=gc_26_scaffolds$V2),
+               fill="green",
+               alpha=0.5) +
+ # Adds a title, x-axis label, and y-axis label.
+    labs(title="Comparison of GC% Values", x="DNA Sequences", y="GC Percentage")
+```
+
+```{r}
+#In order to add a legend to our boxplot, we need to rewrite some of the code from above, and use a new function, scale_fill_manual.
+
+#First, we call the ggplot function...
+ggplot() +
+  
+  #When we call the geom_boxplot() function, we move the fill argument inside aes() and map it to a string that will appear as a label on our legend, instead mapping fill to a color.
+  geom_boxplot(data=cymbo_gc,
+               aes(x="Cymbomonas",y=cymbo_gc$V4, fill="Cymbomonas GC%"),
+               alpha=0.5) +
+  #We make the same changes to the syntax of our second call to the geom_boxplot() function...
+  geom_boxplot(data=gc_26_scaffolds, 
+                 aes(x="26 Scaffolds",y=gc_26_scaffolds$V2, fill="26 Scaffolds GC%"),
+                 alpha=0.5) +
+  
+  #And add a third function, scale_fill_manual.  This function manually defines the behavior of the fill argument used above in your geom_boxplot() functions.  
+  
+  #The first argument, name, defines the title of your Legend (here just given as "Legend")
+  scale_fill_manual(name="Legend",
+                    
+                     #The second argument, breaks, matches the strings we mapped to the fill argument above...
+                     breaks= c("Cymbomonas GC%","26 Scaffolds GC%"),
+                    
+                     #And the third argument, values, is where we say what color we want our boxplot, and our legend, to have.
+                     values= c("blue","green")) +
+  
+# Adds a title, x-axis label, and y-axis label.
+    labs(title="Comparison of GC% Values", x="DNA Sequences", y="GC Percentage")
+```
+
+```{r}
+#Create a dataframe of summary statistics, called summary.df, containing information about the means and standard deviations of cymbo_gc and gc_26_scaffolds.  You may use the hist_box_bar notebook code as a template.
+```
+
+```{r}
+#For our boxplot, since we are using a summary dataframe, instead of two separate dataframes referenced in separate geoms, our syntax is a little different.
+
+#First, we load the data into our ggplot function and map the fill argument onto a vector of string labels
+ggplot(data=summary.df, aes(x=names, y=means, fill=c("Cymbomonas GC%", "26 Scaffolds GC%"))) +
+  
+  #We call the geom_bar() function, define the color of the edges of the plot and the transparency of the plot...
+  geom_bar(stat="identity",
+           col="black",
+           alpha=0.5) +
+  
+  #Define the error bars...
+  geom_errorbar(aes(ymax = means + stdevs, ymin = means-stdevs), position=dodge, width=0.9) +
+  
+  #And use scale_fill_manual to create the legend and define the fill color with the values argument.
+  scale_fill_manual(name="Legend",
+                    breaks=c("Cymbomonas GC%","26 Scaffolds GC%"),
+                    values=c("blue","green")) +
+  labs(title="Mean GC% for Cymbomonas tetramitiformis and 26 Suspected Viral Scaffolds", x="DNA Sequences", y="Mean GC%")
+```
+
+```{r}
+#CHALLENGE: Can you create a legend for the histogram of the Cymbomonas tetramitiformis GC% values?
+
+#Use your code from the hist_box_bar notebook as a template.  You may need to change where the fill argument appears, and add a scale_fill_manual() function.
+
+```
+
+```{r}
+#BONUS: There are many themes available for use with ggplot that change the appearance of your plots, including some fun themes that let you make plots with the same format as graphs that appear in publications like The Economist and The Wall Street Journal.
+
+#In the window on the bottom right of RStudio, install the ggthemes package --->
+
+#Load the ggthemes package using the library() function
+
+#Copy the code you used to create your histogram above below this comment...
+
+
+#And add a final function to define the theme.  Don't forget your plus sign!
+#This is a theme that resembles the base graphics in R.  You can change your font size for a theme using the base_size argument.
+  theme_base(base_size=9)
+  
+  #Try modifying your code to use the following themes: theme_classic(), theme_linedraw(), theme_bw(), theme_dark(), theme_calc(), theme_economist(), theme_fivethirtyeight(), theme_wsj(), and theme_solarized()
+
+  #Pick your favorite theme, copy the plot, and send it to me on slack!
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
