@@ -36,8 +36,6 @@ def main(input_file,output_file_name):
                     c_counter += 1
                 elif base == 'G':
                     g_counter += 1
-                elif base == 'N':
-                    n_counter += 1
                 elif base == 'A':
                     a_counter += 1
                 elif base == 'T':
@@ -45,7 +43,7 @@ def main(input_file,output_file_name):
             #prints the sequence id
             print (seq_record.id)
             #the total of all the Bases to find the mean
-            total = c_counter + g_counter + n_counter + a_counter + t_counter
+            total = c_counter + g_counter + a_counter + t_counter
             #find the percentage of C and G and then adding them together
             cpercentage = float(c_counter)/ float(total) * 100
             gpercentage = float(g_counter)/ float(total) * 100
