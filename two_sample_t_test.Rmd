@@ -8,7 +8,7 @@ This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
-#Your motivation: a team of medical researchers at a university hospital are investigating whether a new treatment for pancreatic cancer is more effective than the standard treatment.  You are comparing survival times post diagnosis.  You have two samples, a treatment sample (n=20) and a control sample (n = 17).
+#Your motivation: a team of medical researchers at a university hospital are investigating whether a new treatment for pancreatic cancer is more effective than the standard treatment.  You are comparing survival times in years post diagnosis.  You have two samples, a treatment sample (n=20) and a control sample (n = 17).
 
 
 control <- c(1.1,2.5,2.3,1.7,2.0,2.9,2.3,4.1,2.7,3.4,1.8,2.1,2.0,3.9,1.4,0.9,3.1)
@@ -26,6 +26,9 @@ hist(treatment)
 
 ```{r}
 #Using your notes and the slides from today, write a function to conduct an independent, two-sample t-test.  Think about what arguments you will need and what variables you will define inside of your function.
+
+
+
 
 
 
