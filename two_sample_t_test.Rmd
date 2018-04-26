@@ -1,0 +1,52 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+#Your motivation: a team of medical researchers at a university hospital are investigating whether a new treatment for pancreatic cancer is more effective than the standard treatment.  You are comparing survival times post diagnosis.  You have two samples, a treatment sample (n=20) and a control sample (n = 17).
+
+
+control <- c(1.1,2.5,2.3,1.7,2.0,2.9,2.3,4.1,2.7,3.4,1.8,2.1,2.0,3.9,1.4,0.9,3.1)
+
+treatment <- c(3.9,2.1,2.8,1.9,4.0,4.4,3.4,3.4,4.8,5.1,3.9,4.1,2.9,3.7,4.8,4.1,5.2,3.3,2.9,3.9)
+
+```
+
+```{r}
+#Use histograms to visually assess whether each sample is roughly normally distributed.
+
+hist(control)
+hist(treatment)
+```
+
+```{r}
+#Using your notes and the slides from today, write a function to conduct an independent, two-sample t-test.  Think about what arguments you will need and what variables you will define inside of your function.
+
+
+
+#Call your new function on the control and treatment variables created above.  Does the treatment group live longer, on average, than the control group?
+
+
+```
+
+```{r}
+#Use the t.test function to compare the results of your t-test to the built-in Welch's T Test written by R.  You may see some differences!
+
+
+```
+
+```{r}
+#CHALLENGE!!  Can you create a function that will run BOTH a one-sample t test and an independent two-sample t test depending on the arguments you pass to it?
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
