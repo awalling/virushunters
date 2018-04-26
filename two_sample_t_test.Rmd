@@ -29,7 +29,7 @@ hist(treatment)
 
 
 
-#Call your new function on the control and treatment variables created above.  Does the treatment group live longer, on average, than the control group?
+#Call your new function on the control and treatment variables created above and conduct an upper-tailed t-test.  Does the treatment group live longer, on average, than the control group?  Be careful which variable you call x and which variable you call y!
 
 
 ```
